@@ -1,3 +1,4 @@
+#!/bin/bash
 
 docker stop polymer-site
 docker rm polymer-site
@@ -6,4 +7,4 @@ docker run -d --name=polymer-site \
     -p 8000:8000 \
     -e GIT_URI=https://github.com/carljmosca/polymer-site.git \
     -e GIT_DIRECTORY=site \
-    carljmosca/polymer-site:1.00
+    carljmosca/polymer3:1.00

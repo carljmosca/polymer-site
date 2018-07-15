@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
-docker build . --tag=carljmosca/polymer-site:1.00
+docker build . --tag=carljmosca/polymer3:1.00
     
