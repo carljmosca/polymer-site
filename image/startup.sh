@@ -7,13 +7,19 @@ if ! whoami &> /dev/null; then
   fi
 fi
 
-cd 
+export HOME=/home/apache
+
+cd $HOME
+echo "Cloning $GIT_URI"
 git clone "$GIT_URI" app
 cd app/$GIT_DIRECTORY
+echo "Updating node modules..."
 npm i
+echo "Polymer build..."
 polymer build
-cp -R build/* /var/www/html/
-
+echo "Moving site..."
+cp -R build/esm-bundled/* /var/www/html/
+echo "Starting Apache..."
 /sbin/apachectl
-
+echo "Running"
 tail -f /dev/null

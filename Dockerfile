@@ -14,6 +14,8 @@ RUN chmod g=u /etc/passwd
 COPY image/startup.sh /usr/local/bin/startup.sh
 RUN chmod 755 /usr/local/bin/startup.sh && \
     chown -R 1000:0 /run/httpd && \
+    chown -R 1000:0 /var/www && \
+    chmod -R 775 /var/www && \
     chmod 775 /run/httpd && \
     chmod -R 775 /var/log/httpd
 
