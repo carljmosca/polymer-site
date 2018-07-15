@@ -9,7 +9,11 @@ RUN npm i npm@4 -g
 RUN npm install -g polymer-cli
 
 COPY image/startup.sh /usr/local/bin/startup.sh
-RUN chmod 755 /usr/local/bin/startup.sh
+RUN chmod 755 /usr/local/bin/startup.sh && \
+    chmod 775 /run/httpd && \
+    chmod -R 775 /var/log/httpd
+
+RUN sed -i 's/Listen 80/Listen 8000/g' /etc/httpd/conf/httpd.conf
 
 ENTRYPOINT [ "/usr/local/bin/startup.sh" ]
 
