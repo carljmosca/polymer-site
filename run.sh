@@ -1,4 +1,3 @@
-#!/bin/sh
 
 docker stop polymer-site
 docker rm polymer-site
